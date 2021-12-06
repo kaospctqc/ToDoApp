@@ -88,16 +88,18 @@ def add_task():
 
 def remove_task():
     """
-    Ask user what is the task number of the task to be 
+    Ask user what is the task number of the task to be
     removed and remove that task
     """
     print("Please input the number of the task to be removed")
-    task_number = int(input("Task number: "))
-    confirmation = input(f"Are you sure you wish to remove task number: {task_number}? Y/N: ")
+    task_num = int(input("Task number: "))
+    confirmation = input(
+            f"Are you sure you wish to remove task number: {task_num}? Y/N: "
+        )
     if confirmation.lower() == 'y':
         print("Removing task")
         worksheet_to_update = SHEET.worksheet('todo_list')
-        worksheet_to_update.delete_rows(task_number + 1)
+        worksheet_to_update.delete_rows(task_num + 1)
 
     show_todo_list()
 
