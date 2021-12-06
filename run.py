@@ -40,6 +40,22 @@ def do_sign_up():
     return [username, password]
 
 
+def show_todo_list():
+    """
+    Show current todo list and get user action choice
+    """
+    todo_list = SHEET.worksheet("todo_list").get_all_values()
+    print("ToDo List:")
+
+    for ind in range(1, len(todo_list)):
+        print(f"{ind}. {todo_list[ind][1]}")
+    
+    print("Please select a action from below:")
+    user_choice = input("add[a], delete[d], edit[e]: ")
+
+    return user_choice
+
+
 def update_worksheet(data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet
@@ -54,5 +70,6 @@ def update_worksheet(data, worksheet):
 # update_worksheet(['test_user', 'test_password'], 'users')
 # option = show_options()
 # print(option)
-new_user = do_sign_up()
-update_worksheet(new_user, 'users')
+# new_user = do_sign_up()
+# update_worksheet(new_user, 'users')
+show_todo_list()
