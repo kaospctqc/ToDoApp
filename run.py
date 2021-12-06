@@ -26,6 +26,20 @@ def show_options():
     return user_choice
 
 
+def do_sign_up():
+    """
+    Register new user using the provided credentials
+    """
+    print("User registration")
+    print("Please choose a username that is not longer than 8 characters\n")
+    username = input("Username: ")
+    print("\nPlease choose a password that is longer than 8 characters,")
+    print("and container a upper and a lower case character,")
+    print("and one special character\n")
+    password = input("Password: ")
+    return [username, password]
+
+
 def update_worksheet(data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet
@@ -38,5 +52,7 @@ def update_worksheet(data, worksheet):
 
 
 # update_worksheet(['test_user', 'test_password'], 'users')
-option = show_options()
-print(option)
+# option = show_options()
+# print(option)
+new_user = do_sign_up()
+update_worksheet(new_user, 'users')
