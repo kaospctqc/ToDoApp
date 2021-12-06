@@ -60,12 +60,13 @@ def get_task_action():
     Get action of user and apply
     """
     print("Please select a action from below:")
-    user_choice = input("add[a], delete[d], edit[e]: ")
+    user_choice = input("add[a], delete[d], edit[e], quit[q]: ")
     if user_choice == 'a':
         print('add task')
         add_task()
     elif user_choice == 'd':
         print('delete task')
+        remove_task()
     elif user_choice == 'e':
         print('edit')
     elif user_choice == 'q':
@@ -82,6 +83,22 @@ def add_task():
     task = input("Task: ")
     update_worksheet(['stefan', task], 'todo_list')
     print("Finished updating the task list")
+    show_todo_list()
+
+
+def remove_task():
+    """
+    Ask user what is the task number of the task to be 
+    removed and remove that task
+    """
+    print("Please input the number of the task to be removed")
+    task_number = int(input("Task number: "))
+    confirmation = input(f"Are you sure you wish to remove task number: {task_number}? Y/N: ")
+    if confirmation.lower() == 'y':
+        print("Removing task")
+        worksheet_to_update = SHEET.worksheet('todo_list')
+        worksheet_to_update.delete_rows(task_number + 1)
+
     show_todo_list()
 
 
