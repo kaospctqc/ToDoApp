@@ -13,6 +13,19 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('ToDoApp')
 
 
+def show_options():
+    """
+    Display Sign In and Sign Up options to the user.
+    Get users option and return it
+    """
+    print("Welcome to ToDoApp")
+    print("Please choose one of the following options:")
+    print("1. Sign Up")
+    print("2. Sign In")
+    user_choice = input("Option number: ")
+    return user_choice
+
+
 def update_worksheet(data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet
@@ -24,4 +37,6 @@ def update_worksheet(data, worksheet):
     print(f"{worksheet} worksheet updated successfully.\n")
 
 
-update_worksheet(['test_user', 'test_password'], 'users')
+# update_worksheet(['test_user', 'test_password'], 'users')
+option = show_options()
+print(option)
