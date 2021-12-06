@@ -49,11 +49,40 @@ def show_todo_list():
 
     for ind in range(1, len(todo_list)):
         print(f"{ind}. {todo_list[ind][1]}")
-    
+
+    get_task_action()
+
+    return todo_list
+
+
+def get_task_action():
+    """
+    Get action of user and apply
+    """
     print("Please select a action from below:")
     user_choice = input("add[a], delete[d], edit[e]: ")
+    if user_choice == 'a':
+        print('add task')
+        add_task()
+    elif user_choice == 'd':
+        print('delete task')
+    elif user_choice == 'e':
+        print('edit')
+    elif user_choice == 'q':
+        print('Until next time...')
+    else:
+        print('option not valid')
 
-    return user_choice
+
+def add_task():
+    """
+    Ask user for task and add it to the google sheet
+    """
+    print("Please input task description")
+    task = input("Task: ")
+    update_worksheet(['stefan', task], 'todo_list')
+    print("Finished updating the task list")
+    show_todo_list()
 
 
 def update_worksheet(data, worksheet):
