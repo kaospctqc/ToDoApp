@@ -22,7 +22,7 @@ def show_options():
     print("Please choose one of the following options:")
     print("1. Sign Up")
     print("2. Sign In")
-    user_choice = input("Option number: ")
+    user_choice = input("Option number:\n")
     return user_choice
 
 
@@ -32,11 +32,11 @@ def do_sign_up():
     """
     print("User registration")
     print("Please choose a username that is not longer than 8 characters\n")
-    username = input("Username: ")
+    username = input("Username:\n")
     print("\nPlease choose a password that is longer than 8 characters,")
     print("and container a upper and a lower case character,")
     print("and one special character\n")
-    password = input("Password: ")
+    password = input("Password:\n")
     return [username, password]
 
 
@@ -60,7 +60,7 @@ def get_task_action():
     Get action of user and apply
     """
     print("Please select a action from below:")
-    user_choice = input("add[a], delete[d], edit[e], quit[q]: ")
+    user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
     if user_choice == 'a':
         print('add task')
         add_task()
@@ -80,7 +80,7 @@ def add_task():
     Ask user for task and add it to the google sheet
     """
     print("Please input task description")
-    task = input("Task: ")
+    task = input("Task:\n")
     update_worksheet(['stefan', task], 'todo_list')
     print("Finished updating the task list")
     show_todo_list()
@@ -94,7 +94,7 @@ def remove_task():
     print("Please input the number of the task to be removed")
     task_num = int(input("Task number: "))
     confirmation = input(
-            f"Are you sure you wish to remove task number: {task_num}? Y/N: "
+            f"Are you sure you wish to remove task number: {task_num}? Y/N:\n"
         )
     if confirmation.lower() == 'y':
         print("Removing task")
