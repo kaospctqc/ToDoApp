@@ -125,6 +125,7 @@ def get_task_action(username):
         remove_task(username)
     elif user_choice == 'e':
         print('edit')
+        edit_task(username)
     elif user_choice == 'q':
         print('Until next time...')
     else:
@@ -139,6 +140,7 @@ def add_task(username):
     task = input("Task:\n")
     update_worksheet([username, task], 'todo_list')
     print("Finished updating the task list")
+
     show_todo_list(username)
 
 
@@ -148,14 +150,37 @@ def remove_task(username):
     removed and remove that task
     """
     print("Please input the ID of the task to be removed")
-    task_num = int(input("Task ID: "))
+    task_id = int(input("Task ID: "))
     confirmation = input(
-            f"Are you sure you wish to remove task ID: {task_num}? Y/N:\n"
+            f"Are you sure you wish to remove task ID: {task_id}? Y/N:\n"
         )
     if confirmation.lower() == 'y':
-        print(f"Removing task ID {task_num}\n")
+        print(f"Removing task ID {task_id}\n")
         worksheet_to_update = SHEET.worksheet('todo_list')
-        worksheet_to_update.delete_rows(task_num + 1)
+        worksheet_to_update.delete_rows(task_id + 1)
+
+    show_todo_list(username)
+
+
+def edit_task(username):
+    """
+    Ask user for task ID to edit and allow user to
+    overwrite specific task
+    """
+    print("Please input the ID of the task to be edited")
+    task_id = int(input("Task ID: "))
+    confirmation = input(
+            f"Are you sure you wish to edit task ID: {task_id}? Y/N:\n"
+        )
+
+    if confirmation.lower() == 'y':
+        print(f"EDIT: {task_id}")
+        task = input()
+
+        worksheet_to_update = SHEET.worksheet('todo_list')
+        worksheet_to_update.update_cell(task_id + 1, 2, task)
+
+        print("Finished editing the task")
 
     show_todo_list(username)
 
