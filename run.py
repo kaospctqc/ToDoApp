@@ -53,13 +53,14 @@ def get_username():
     return username
 
 
-def get_password():
+def get_password(type_of_password):
     """
     Get password form user input
     """
-    print("\nPlease choose a password that is longer than 8 characters,")
-    print("and container a upper and a lower case character,")
-    print("and one special character\n")
+    if type_of_password == "sign_up":
+        print("\nPlease choose a password that is longer than 8 characters,")
+        print("and container a upper and a lower case character,")
+        print("and one special character\n")
     password = getpass("Password:\n")
     return password
 
@@ -75,7 +76,7 @@ def do_sign_up():
         print("Please try a different option\n")
         username = get_username()
 
-    password = get_password()
+    password = get_password("sign_up")
     update_worksheet([username, password], 'users')
 
     return username
@@ -87,9 +88,9 @@ def do_sign_in():
     """
     print("User sign in")
     username = get_username()
-    password = get_password()
+    password = get_password("sign_in")
     while check_password(password):
-        password = get_password()
+        password = get_password("sign_in")
 
     return username
 
