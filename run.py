@@ -36,11 +36,17 @@ def check_username(username):
         return True
 
 
-def check_password(username):
+def check_password(username, password):
     """
     Verify password for the provided user
     """
-    return
+    backend = SHEET.worksheet("users")
+
+    username_row = backend.find(username).row
+    password_from_backend = backend.cell(username_row, 2).value
+
+    if password == password_from_backend:
+        return True
 
 
 def get_username():
@@ -89,7 +95,8 @@ def do_sign_in():
     print("User sign in")
     username = get_username()
     password = get_password("sign_in")
-    while check_password(password):
+    while not check_password(username, password):
+        print("Wrong password, please try again")
         password = get_password("sign_in")
 
     return username
