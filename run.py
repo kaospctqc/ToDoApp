@@ -151,10 +151,12 @@ def remove_task(username):
     removed and remove that task
     """
     print("Please input the ID of the task to be removed")
-    task_id = int(input("Task ID: "))
+    task_id = get_task_id(username)
+
     confirmation = input(
             f"Are you sure you wish to remove task ID: {task_id}? Y/N:\n"
         )
+
     if confirmation.lower() == 'y':
         print(f"Removing task ID {task_id}\n")
         worksheet_to_update = SHEET.worksheet('todo_list')
@@ -169,7 +171,8 @@ def edit_task(username):
     overwrite specific task
     """
     print("Please input the ID of the task to be edited")
-    task_id = int(input("Task ID: "))
+    task_id = get_task_id(username)
+
     confirmation = input(
             f"Are you sure you wish to edit task ID: {task_id}? Y/N:\n"
         )
@@ -184,6 +187,23 @@ def edit_task(username):
         print("Finished editing the task")
 
     show_todo_list(username)
+
+
+def get_task_id(username):
+    """
+    Get task id from user and check if user and owner match
+    """
+
+    task_id = int(input("Task ID: "))
+    owner = SHEET.worksheet('todo_list').cell(task_id + 1, 1).value
+
+    while username != owner:
+        print("Selected task has a different owner")
+        print("Please choose again")
+        task_id = int(input("Task ID: "))
+        owner = SHEET.worksheet('todo_list').cell(task_id + 1, 1).value
+
+    return task_id
 
 
 def update_worksheet(data, worksheet):
