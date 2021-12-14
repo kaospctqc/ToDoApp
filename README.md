@@ -16,7 +16,7 @@ The only possible actions are add, edit and delete and the data is stored on Goo
 5. [Credits](#credits)
 
 
-### Planning
+## Planning
 Diagram:
 
 ![website preview](assets/images/todo_diagram.png)
@@ -26,13 +26,40 @@ The lack of history is a tool used to keep our focus on getting things done rath
 
 Go back to [Table of contents](#table-of-contents)
 
-### Features
+## Features
+
+- When starting the todo app we have these options
 ![todo signin signup](assets/images/todo_signin_signup.png)
+    - SignUp 
+        - for new users
+        - requires a username and a password that will be used to identify this user in the future
+        - after SignUp is complete, the user will be automatically signed in the application 
+    - SignIn 
+        - for existing users
+        - the user is required to input a username and a password
+        - in the event that the password is not correct, the user will not be signed in until he inputs the correct password
 
+- Once Signed in, the user will always have access to the list of tasks
+![todo task list](assets/images/todo_task_list.png)
+    - The task list is composed of 2 columns
+        - ID - this will be used to identify the task when to perform an action
+        - Description - here we find the actual content of the task
+    - At the end of the task list we find the available actions that are selectable by typing the letter in the square brakets'[]'
 
-### Testing
+- Add will simply ask for the data of a new task
+![todo add task](assets/images/todo_add_task.png)
 
-### Deployment
+- Delete will ask for the task ID that should be removed
+![todo delete task](assets/images/todo_delete_task.png)
 
-### Credits
+- Edit will ask for the task ID that should be edited and, once this has been provided, will request a new Description for the selected task
+![todo edit task](assets/images/todo_edit_task.png)
+
+Go back to [Table of contents](#table-of-contents)
+
+## Testing
+
+## Deployment
+
+## Credits
 
