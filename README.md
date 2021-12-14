@@ -7,6 +7,8 @@ The only possible actions are add, edit and delete and the data is stored on Goo
 
 [Live Website](https://todo-app-kaospctqc.herokuapp.com/)
 
+![site preview](assets/images/todo_amiresponsive.png)
+
 ## Table of Contents
 
 1. [Planning](#planning)
@@ -91,6 +93,8 @@ On the 7th of December 2021, there was an announcement on the CodeInstitue gitpo
     - In order to deploy our app to Heroku, we need to create a requirements.txt file in our repository to hold all the additional modules/libraries that we require.
     - Identify that the CI Love Sandwiches project has identical requirements as the ToDoApp
     - Copy requirements.txt from the [CI Love Sandwiches project](https://github.com/kaospctqc/love-sandwiches)
+### 2. Deploy steps
+- Navigate to Heroku 
 
 
 ## Credits
