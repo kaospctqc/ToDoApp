@@ -5,9 +5,7 @@
 Welcome to my ToDoApp. It's meant to be a simple way to quickly write down daily tasks and, once completed, to delete them. 
 The only possible actions are add, edit and delete and the data is stored on Google Sheets for peristance.
 
-[Live Website][https://todo-app-kaospctqc.herokuapp.com/]
-
-![website preview][assets/images/todo_signin_signup.png]
+[Live Website](https://todo-app-kaospctqc.herokuapp.com/)
 
 ## Table of Contents
 
@@ -29,6 +27,8 @@ The lack of history is a tool used to keep our focus on getting things done rath
 Go back to [Table of contents](#table-of-contents)
 
 ### Features
+![todo signin signup](assets/images/todo_signin_signup.png)
+
 
 ### Testing
 
