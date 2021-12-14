@@ -20,6 +20,7 @@ def show_options():
     Get users option and return it
     """
     print("Welcome to ToDoApp")
+    print("It's meant to be a simple way to quickly write down daily tasks and, once completed, to delete them. The only possible actions are add, edit and delete and the data is stored on Google Sheets for peristance.")
     print("Please choose one of the following options:")
     print("1. Sign Up")
     print("2. Sign In")
