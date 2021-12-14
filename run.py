@@ -1,5 +1,8 @@
+# External package used to enhance the program
 import gspread
+# External package used to enhance the program
 from google.oauth2.service_account import Credentials
+# External package used to enhance the program
 from getpass import getpass
 
 SCOPE = [
@@ -20,11 +23,23 @@ def show_options():
     Get users option and return it
     """
     print("Welcome to ToDoApp")
-    print("It's meant to be a simple way to quickly write down daily tasks and, once completed, to delete them. The only possible actions are add, edit and delete and the data is stored on Google Sheets for peristance.")
+    print(
+        """
+        It's meant to be a simple way to quickly write down daily
+        tasks and, once completed, to delete them. The only possible
+        actions are add, edit and delete and the data is stored on
+        Google Sheets for peristance.
+        """
+    )
     print("Please choose one of the following options:")
     print("1. Sign Up")
     print("2. Sign In")
     user_choice = input("Option number:\n")
+    while True:
+        if user_choice in ["1", "2"]:
+            break
+        print("Invalid input, please choose from the options")
+        user_choice = input("Option number:\n")
     return user_choice
 
 
@@ -132,6 +147,12 @@ def get_task_action(username):
     """
     print("Please select a action from below:")
     user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
+    while True:
+        if user_choice in ["a", "d", "e", "q"]:
+            break
+        print("Invalid input, please choose from the options")
+        user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
+
     if user_choice == 'a':
         print('add task')
         add_task(username)
@@ -142,9 +163,13 @@ def get_task_action(username):
         print('edit')
         edit_task(username)
     elif user_choice == 'q':
+        print(
+            """
+            If you wish to restart the application,
+            please use the "Run program" from above
+            """
+        )
         print('Until next time...')
-    else:
-        print('option not valid')
 
 
 def add_task(username):
@@ -168,6 +193,14 @@ def remove_task(username):
     task_id = get_task_id(username)
 
     confirmation = input(
+        f"Are you sure you wish to remove task ID: {task_id}? Y/N:\n"
+    )
+
+    while True:
+        if confirmation.lower() in ["y", "n"]:
+            break
+        print("Invalid input, please enter a valid option")
+        confirmation = input(
             f"Are you sure you wish to remove task ID: {task_id}? Y/N:\n"
         )
 
@@ -188,6 +221,14 @@ def edit_task(username):
     task_id = get_task_id(username)
 
     confirmation = input(
+        f"Are you sure you wish to edit task ID: {task_id}? Y/N:\n"
+    )
+
+    while True:
+        if confirmation.lower() in ["y", "n"]:
+            break
+        print("Invalid input, please enter a valid option")
+        confirmation = input(
             f"Are you sure you wish to edit task ID: {task_id}? Y/N:\n"
         )
 
@@ -207,10 +248,18 @@ def get_task_id(username):
     """
     Get task id from user and check if user and owner match
     """
+    while True:
+        try:
+            task_id = int(input("Task ID: "))
+            while task_id >= 985:
+                print("Please choose a ID value of less than 985")
+                task_id = int(input("Task ID: "))
+            break
+        except ValueError as ve:
+            print("Invalid ID, please enter a valid ID")
+            continue
 
-    task_id = int(input("Task ID: "))
     owner = SHEET.worksheet('todo_list').cell(task_id + 1, 1).value
-
     while username != owner:
         print("Selected task has a different owner")
         print("Please choose again")
@@ -240,9 +289,6 @@ def main():
         username = do_sign_up()
     elif option == '2':
         username = do_sign_in()
-    else:
-        print('Invalid option')
-        return
 
     show_todo_list(username)
 
