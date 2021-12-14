@@ -67,8 +67,14 @@ def get_password(type_of_password):
         print("\nPlease choose a password that is longer than 8 characters,")
         print("and container a upper and a lower case character,")
         print("and one special character\n")
-    password = getpass("Password:\n")
-    return password
+    password1 = getpass("Password:\n")
+    if type_of_password == "sign_up":
+        password2 = getpass("Confirm password:\n")
+        while password1 != password2:
+            print("Passwords do not match, please try again\n")
+            password1 = getpass("Password:\n")
+            password2 = getpass("Confirm password:\n")
+    return password1
 
 
 def do_sign_up():
