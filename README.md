@@ -59,11 +59,27 @@ Go back to [Table of contents](#table-of-contents)
 
 ## Testing
 
-TEST            | OUTCOME                          | PASS / FAIL  
---------------- | -------------------------------- | ---------------
-SignUp SignIn   | when a user inputs a incorrect option, they should be redirected to the option screen until a valid option is provided| FAIL ![todo bug001](assets/images/todo_bug001.png)
+### Functionality Testing
+TEST            | OUTCOME                          | PASS / FAIL  | ScreenShot
+--------------- | -------------------------------- | ---------------|---------
+SignUp SignIn   | when a user inputs a incorrect option, they should be redirected to the option screen until a valid option is provided| FAIL | ![todo bug001](assets/images/todo_bug001.png)
+SignUp used username | when a user wants to use a username that has already been used, they shouldn't be allowed and should be prompted to try another username | PASS | ![todo wrong username](assets/images/todo_username_unavailable.png)
+SignUp success  | when a user inputs valid username and password, they should be able perform signup | PASS | ![todo test signup](assets/images/todo_test_signup.png)
+SignIn bad password | when a users inputs a incorrect password on signin, they should be asked for the correct password instead of being signed in | PASS | ![todo wrong password](assets/images/todo_wrong_password.png)
+SignIn success  | when a user inputs correct username and password, they should be able to perform signin | PASS | ![todo signin](assets/images/todo_signin.png)
+Add task        | when a user chooses option [a] and inputs a task description, a task should be created in the task list| PASS | ![todo add task](assets/images/todo_add_task.png)
+Delete task     | when a user chooses option [d] and inputs a task ID, the task with that ID should be removed from the task list | PASS | ![todo delete task](assets/images/todo_delete_task.png)
+Edit task       | when a user chooses option [e] and inputs a task ID and a task description, the task list should show the edited task | PASS | ![todo edit task](assets/images/todo_edit_task.png)
 
 Go back to [Table of contents](#table-of-contents)
+
+### Syntax Testing
+
+For this test we use the PEP8 validator and we find that we are missing the end tripple double quotes for a multi-line string
+![todo pep8 bad](assets/images/todo_pep8_bad.png)
+
+Here we have fixed this issue:
+![todo pep8 good](assets/images/todo_pep8_good.png)
 
 ## Deployment
 
