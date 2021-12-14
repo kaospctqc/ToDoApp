@@ -59,6 +59,12 @@ Go back to [Table of contents](#table-of-contents)
 
 ## Testing
 
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+SignUp SignIn   | when a user inputs a incorrect option, they should be redirected to the option screen until a valid option is provided| FAIL ![todo bug001](assets/images/todo_bug001.png)
+
+Go back to [Table of contents](#table-of-contents)
+
 ## Deployment
 
 ## Credits
