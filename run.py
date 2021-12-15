@@ -5,6 +5,7 @@ from google.oauth2.service_account import Credentials
 # External package used to enhance the program
 from getpass import getpass
 
+# Code from Code Institute Love Sandwiches project
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -132,9 +133,15 @@ def show_todo_list(username):
     print("ToDo List:\n")
     print("ID Description")
 
+    task_list_count = 0
     for ind in range(1, len(todo_list)):
         if todo_list[ind][0] == username:
+            task_list_count += 1
             print(f"{ind}. '{todo_list[ind][1]}'")
+
+    if task_list_count == 0:
+        print("\nThere are currently no tasks in the list.")
+        print("Please use the add action to create tasks.\n")
 
     get_task_action(username)
 
@@ -145,7 +152,7 @@ def get_task_action(username):
     """
     Get action of user and apply
     """
-    print("Please select a action from below:")
+    print("\nPlease select a action from below:")
     user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
     while True:
         if user_choice in ["a", "d", "e", "q"]:
