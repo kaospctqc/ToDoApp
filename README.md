@@ -80,14 +80,17 @@ Go back to [Table of contents](#table-of-contents)
 ### Functionality Testing
 TEST            | OUTCOME                          | PASS / FAIL  | ScreenShot
 --------------- | -------------------------------- | ---------------|---------
-SignUp SignIn   | when a user inputs a incorrect option, they should be redirected to the option screen until a valid option is provided| FAIL | ![todo bug001](assets/images/todo_bug001.png)
+SignUp SignIn   | when a user inputs a incorrect option, they should be requested to input correct information | PASS | ![todo welcome validation](assets/images/todo_welcome_validation.png)
 SignUp used username | when a user wants to use a username that has already been used, they shouldn't be allowed and should be prompted to try another username | PASS | ![todo wrong username](assets/images/todo_username_unavailable.png)
+SignUp password confirmation | upon signup, a user must be asked to confirm the chose password to avoid mistakes | PASS | ![todo password confirmation](assets/images/todo_password_confirmation.png)
 SignUp success  | when a user inputs valid username and password, they should be able perform signup | PASS | ![todo test signup](assets/images/todo_test_signup.png)
 SignIn bad password | when a users inputs a incorrect password on signin, they should be asked for the correct password instead of being signed in | PASS | ![todo wrong password](assets/images/todo_wrong_password.png)
 SignIn success  | when a user inputs correct username and password, they should be able to perform signin | PASS | ![todo signin](assets/images/todo_signin.png)
+Action validation | only accept expected input in the action menu | PASS | ![todo action validation](assets/images/todo_action_validation.png)
 Add task        | when a user chooses option [a] and inputs a task description, a task should be created in the task list| PASS | ![todo add task](assets/images/todo_add_task.png)
 Delete task     | when a user chooses option [d] and inputs a task ID, the task with that ID should be removed from the task list | PASS | ![todo delete task](assets/images/todo_delete_task.png)
 Edit task       | when a user chooses option [e] and inputs a task ID and a task description, the task list should show the edited task | PASS | ![todo edit task](assets/images/todo_edit_task.png)
+TaskId validation | when a user wants to delete or edit a task, they should not be allowed to input invalid options | PASS | ![todo taskid validatio](assets/images/todo_taskid_validation.png)
 
 Go back to [Table of contents](#table-of-contents)
 
