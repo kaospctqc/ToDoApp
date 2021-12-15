@@ -70,7 +70,15 @@ This project makes use of a few different technologies to enable it's functional
     - gspread                   - is a Python API for Google Sheets.
     - google.oauth2.credentials - provides credentials based on OAuth 2.0 access and refresh tokens.
     - getpass                   - used to hide passwords during input
-
+- Development tools:
+    - git           - code repository and versioning technology
+    - gitpod        - development environment
+    - github        - cloud provider for remote code storage 
+    - heroku        - used to host the application
+    - lucidchart    - used to create flow diagram
+    - PEP8          - used to check Python code
+    - amiresponsive - show the application for different screen sizes
+    
 All other code, unless explicitly specified, was created by myself.
 
 Go back to [Table of contents](#table-of-contents)
