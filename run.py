@@ -277,6 +277,7 @@ def get_task_id(username):
     return task_id
 
 
+# Code from Code Institute Love Sandwiches project
 def update_worksheet(data, worksheet):
     """
     Receives a list of integers to be inserted into a worksheet

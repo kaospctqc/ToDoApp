@@ -13,9 +13,10 @@ The only possible actions are add, edit and delete and the data is stored on Goo
 
 1. [Planning](#planning)
 2. [Features](#features)
-3. [Testing](#testing)
-4. [Deployment](#deployment)
-5. [Credits](#credits)
+3. [Technologies](#technologies)
+4. [Testing](#testing)
+5. [Deployment](#deployment)
+6. [Credits](#credits)
 
 
 ## Planning
@@ -59,6 +60,21 @@ Go back to [Table of contents](#table-of-contents)
 
 Go back to [Table of contents](#table-of-contents)
 
+## Technologies
+
+This project makes use of a few different technologies to enable it's functionality.
+- Google Sheets are used as backend storage for 
+    - user credentials 
+    - task data
+- Python external resources:
+    - gspread                   - is a Python API for Google Sheets.
+    - google.oauth2.credentials - provides credentials based on OAuth 2.0 access and refresh tokens.
+    - getpass                   - used to hide passwords during input
+
+All other code, unless explicitly specified, was created by myself.
+
+Go back to [Table of contents](#table-of-contents)
+
 ## Testing
 
 ### Functionality Testing
@@ -99,3 +115,6 @@ On the 7th of December 2021, there was an announcement on the CodeInstitue gitpo
 
 ## Credits
 
+This project uses gspread, google-auth, getpass.
+There is also some code from the Code Institute Love Sandwiches Project that has been marked with comments to indicate this.
+All other code has been created by me, except that which has been explicitly marked as external.
