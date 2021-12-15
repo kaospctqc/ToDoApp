@@ -78,7 +78,7 @@ This project makes use of a few different technologies to enable it's functional
     - lucidchart    - used to create flow diagram
     - PEP8          - used to check Python code
     - amiresponsive - show the application for different screen sizes
-    
+
 All other code, unless explicitly specified, was created by myself.
 
 Go back to [Table of contents](#table-of-contents)
@@ -100,8 +100,6 @@ Delete task     | when a user chooses option [d] and inputs a task ID, the task 
 Edit task       | when a user chooses option [e] and inputs a task ID and a task description, the task list should show the edited task | PASS | ![todo edit task](assets/images/todo_edit_task.png)
 TaskId validation | when a user wants to delete or edit a task, they should not be allowed to input invalid options | PASS | ![todo taskid validatio](assets/images/todo_taskid_validation.png)
 
-Go back to [Table of contents](#table-of-contents)
-
 ### Syntax Testing
 
 For this test we use the PEP8 validator and we find that we are missing the end tripple double quotes for a multi-line string
@@ -109,6 +107,8 @@ For this test we use the PEP8 validator and we find that we are missing the end 
 
 Here we have fixed this issue:
 ![todo pep8 good](assets/images/todo_pep8_good.png)
+
+Go back to [Table of contents](#table-of-contents)
 
 ## Deployment
 
@@ -122,10 +122,25 @@ On the 7th of December 2021, there was an announcement on the CodeInstitue gitpo
     - Copy requirements.txt from the [CI Love Sandwiches project](https://github.com/kaospctqc/love-sandwiches)
 ### 2. Deploy steps
 - Navigate to Heroku 
+- Use new -> create new app feature
+- Choose app name and the Europe region and click on create app
+- Navigate to settings and choose reveal config vars
+- add config vars:
+    - key PORT, value: 8000
+    - key CREDS, use Google API Credentials and paste the json document in the value field
+- use the buildpacks feature to add (order is important):
+    - python
+    - nodejs
+- Navigate to deploy and choose GitHub (Connect to GitHub)
+- Connect project repository and chose to manually deploy
+- Once the succesfully deployed message is displayed, use the view option to open the app  
 
+Go back to [Table of contents](#table-of-contents)
 
 ## Credits
 
 This project uses gspread, google-auth, getpass.
 There is also some code from the Code Institute Love Sandwiches Project that has been marked with comments to indicate this.
 All other code has been created by me, except that which has been explicitly marked as external.
+
+Go back to [Table of contents](#table-of-contents)
