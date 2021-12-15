@@ -36,7 +36,7 @@ def show_options():
     print("1. Sign Up")
     print("2. Sign In")
     user_choice = input("Option number:\n")
-    while True:
+    while True:  # Input validation loop
         if user_choice in ["1", "2"]:
             break
         print("Invalid input, please choose from the options")
@@ -80,12 +80,13 @@ def get_password(type_of_password):
     """
     Get password form user input
     """
-    if type_of_password == "sign_up":
+    if type_of_password == "sign_up":  # Only happens on user SignUp
         print("\nPlease choose a password that is longer than 8 characters,")
         print("and container a upper and a lower case character,")
         print("and one special character\n")
+
     password1 = getpass("Password:\n")
-    if type_of_password == "sign_up":
+    if type_of_password == "sign_up":  # Ask to confirm password on SignUp
         password2 = getpass("Confirm password:\n")
         while password1 != password2:
             print("Passwords do not match, please try again\n")
@@ -100,7 +101,7 @@ def do_sign_up():
     """
     print("User registration")
     username = get_username()
-    while check_username(username):
+    while check_username(username):  # Make sure to have only unique usernames
         print(f"\nThe '{username}' username is not available!")
         print("Please try a different option\n")
         username = get_username()
@@ -118,7 +119,7 @@ def do_sign_in():
     print("User sign in")
     username = get_username()
     password = get_password("sign_in")
-    while not check_password(username, password):
+    while not check_password(username, password):  # Only allow correct pass
         print("Wrong password, please try again")
         password = get_password("sign_in")
 
@@ -134,12 +135,12 @@ def show_todo_list(username):
     print("ID Description")
 
     task_list_count = 0
-    for ind in range(1, len(todo_list)):
+    for ind in range(1, len(todo_list)):  # Show task list
         if todo_list[ind][0] == username:
             task_list_count += 1
             print(f"{ind}. '{todo_list[ind][1]}'")
 
-    if task_list_count == 0:
+    if task_list_count == 0:  # show message if task list is empty
         print("\nThere are currently no tasks in the list.")
         print("Please use the add action to create tasks.\n")
 
@@ -154,22 +155,22 @@ def get_task_action(username):
     """
     print("\nPlease select a action from below:")
     user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
-    while True:
+    while True:  # Input validation loop
         if user_choice in ["a", "d", "e", "q"]:
             break
         print("Invalid input, please choose from the options")
         user_choice = input("add[a], delete[d], edit[e], quit[q]:\n")
 
-    if user_choice == 'a':
+    if user_choice == 'a':  # Add new task
         print('add task')
         add_task(username)
-    elif user_choice == 'd':
+    elif user_choice == 'd':  # Delete task
         print('delete task')
         remove_task(username)
-    elif user_choice == 'e':
+    elif user_choice == 'e':  # Edit task
         print('edit')
         edit_task(username)
-    elif user_choice == 'q':
+    elif user_choice == 'q':  # Exit program
         print(
             """
             If you wish to restart the application,
@@ -203,7 +204,7 @@ def remove_task(username):
         f"Are you sure you wish to remove task ID: {task_id}? Y/N:\n"
     )
 
-    while True:
+    while True:  # Input validation loop
         if confirmation.lower() in ["y", "n"]:
             break
         print("Invalid input, please enter a valid option")
@@ -231,7 +232,7 @@ def edit_task(username):
         f"Are you sure you wish to edit task ID: {task_id}? Y/N:\n"
     )
 
-    while True:
+    while True:  # Input validation loop
         if confirmation.lower() in ["y", "n"]:
             break
         print("Invalid input, please enter a valid option")
@@ -255,7 +256,7 @@ def get_task_id(username):
     """
     Get task id from user and check if user and owner match
     """
-    while True:
+    while True:  # Input validation loop
         try:
             task_id = int(input("Task ID: "))
             while task_id >= 985:
@@ -267,7 +268,7 @@ def get_task_id(username):
             continue
 
     owner = SHEET.worksheet('todo_list').cell(task_id + 1, 1).value
-    while username != owner:
+    while username != owner:  # Only return tasks that belong to user
         print("Selected task has a different owner")
         print("Please choose again")
         task_id = int(input("Task ID: "))
